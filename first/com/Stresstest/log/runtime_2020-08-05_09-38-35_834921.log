@@ -1,0 +1,50 @@
+2020-08-05 09:38:35.846 | INFO     | hagworm.extend.asyncio.base:__init__:72 - 
+ __  __   ______   ______   __     __   ______   ______   __    __
+/\ \_\ \ /\  __ \ /\  ___\ /\ \  _ \ \ /\  __ \ /\  == \ /\ "-./  \
+\ \  __ \\ \  __ \\ \ \__ \\ \ \/ ".\ \\ \ \/\ \\ \  __< \ \ \-./\ \
+ \ \_\ \_\\ \_\ \_\\ \_____\\ \__/".~\_\\ \_____\\ \_\ \_\\ \_\ \ \_\
+  \/_/\/_/ \/_/\/_/ \/_____/ \/_/   \/_/ \/_____/ \/_/ /_/ \/_/  \/_/
+hagworm 3.10.1
+python 3.7.8 (v3.7.8:4b47a5b6ba, Jun 27 2020, 04:47:50) 
+[Clang 6.0 (clang-600.0.57)]
+system Darwin 19.5.0 Darwin Kernel Version 19.5.0: Tue May 26 20:41:44 PDT 2020; root:xnu-6153.121.2~2/RELEASE_X86_64 x86_64
+2020-08-05 09:38:35.853 | SUCCESS  | hagworm.extend.asyncio.base:install_uvloop:30 - uvloop 0.14.0 installed
+2020-08-05 09:38:35.854 | SUCCESS  | hagworm.extend.asyncio.base:run:93 - Start process no.0
+2020-08-05 09:38:36.122 | INFO     | hagworm.extend.asyncio.net:send_request:175 - POST http://dev.jiayouxueba.cn/api/member/external/teacher/signin => status:200
+2020-08-05 09:38:36.125 | INFO     | __main__:parse:58 - request_body:{'success': True, 'code': 0, 'data': {'is_completed': 1, 'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySW5mbyI6eyJnZW5kZXIiOjAsInJlZ2lzdGVyVGltZSI6MTUxMzA2OTYyOCwiaWRDYXJkIjoiNDMwNDgxMTk5NDEwMjkyMTc1Iiwibmlja05hbWUiOiIxMjMxMjPmrKfogIHluIgiLCJwb3J0cmFpdFVybCI6Imh0dHBzOi8vcHQtaW1nLmppYXlvdXh1ZWJhLmNvbS9kZWZhdWx0LXN0dWRlbnQucG5nIiwidXNlckFyZWFDb2RlIjozMzAxMDAsIm1vYmlsZSI6IjE4NzczMjE1MTI1IiwidXBkYXRlVGltZSI6MTU5NTU1ODcxMiwiY2l0eUlkIjowLCJwcm92aW5jZUlkIjoxOSwidXNlcklkIjoyMjUyMCwiYm9vbGVhbkZsYWciOjQsImNvdW50cnlJZCI6Njg1LCJzeXN0ZW1TdGF0dXMiOjAsIm5hbWUiOiLmooHmr4UiLCJ1c2VyVHlwZSI6MX0sImRvbWFpbkNvZGUiOjEsInNlc3Npb24iOiJlYzQ4NDIzMS0zY2JmLTQ5NTktYTc4Ny00N2FmNTJiMTVkNjEiLCJleHBpcmUiOjE1OTkxODM1MTYwMDAsImNyZWF0ZSI6MTU5NjU5MTUxNjAwMCwiZGV2aWNlQ2hlY2siOjF9.tbqc4Ex8_4WM9qcbR5cN-xIsKUtbwxIKiVDssc7sT44', 'user_info': {'user_id': 22520, 'user_type': 1, 'name': '梁毅', 'nick_name': '123123欧老师', 'mobile': '18773215125', 'portrait_url': 'https://pt-img.jiayouxueba.com/default-student.png', 'gender': 0, 'country_id': 685, 'province_id': 19, 'city_id': 0, 'id_card': '430481199410292175', 'boolean_flag': 4, 'system_status': 0, 'register_time': 1513069628, 'update_time': 1595558712, 'subject_id': 382, 'subject': '地理', 'user_area_code': 330100}, 'auth': 'MjI1MjA6MTp0cnVlOmZhbHNlOkZlKy92UkE4ZGUrL3ZRYmRsSDN2djcwaFgrKy92UkpuOjE6MDpOVFF5WkRWak1EVTBNREkwT0dNM1ptVTJOemRqWmpJNE4yRmxNRE5pWldVPTpmYWxzZQ==', 'area_is_confirm': 1}}
+2020-08-05 09:38:36.126 | ERROR    | hagworm.extend.base:__exit__:965 - 'bytes' object has no attribute 'status'
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/frame/stress_tests.py", line 74, in _func
+    await func(*args, **kwargs)
+          │     │       └ {}
+          │     └ (1, 1)
+          └ <bound method Runner.run of <hagworm.frame.stress_tests.Runner object at 0x7f9144f77390>>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/frame/stress_tests.py", line 185, in run
+    await tasks
+          └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f914a56a1d0>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/base.py", line 447, in __await__
+    yield from asyncio.gather(*self._task_list).__await__()
+               │       │       │    └ [<Task finished coro=<Task.run() done, defined at /Users/liangyi/Project/git/python/first/com/Stresstest/login.py:89> excepti...
+               │       │       └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f914a56a1d0>
+               │       └ <function gather at 0x7f914895e200>
+               └ <module 'asyncio' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/__init__.py'>
+
+  File "/Users/liangyi/Project/git/python/first/com/Stresstest/login.py", line 98, in run
+    await tasks
+          └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f914a56a3d0>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/base.py", line 447, in __await__
+    yield from asyncio.gather(*self._task_list).__await__()
+               │       │       │    └ [<Task pending coro=<Task.parse() running at /Users/liangyi/Project/git/python/first/com/Stresstest/login.py:56> wait_for=<Fu...
+               │       │       └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f914a56a3d0>
+               │       └ <function gather at 0x7f914895e200>
+               └ <module 'asyncio' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/__init__.py'>
+
+  File "/Users/liangyi/Project/git/python/first/com/Stresstest/login.py", line 74, in parse
+    if resp and resp.status == 200:
+       │        └ b'{"success":true,"code":0,"data":{"is_completed":1,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySW5mbyI6eyJnZW5kZXI...
+       └ b'{"success":true,"code":0,"data":{"is_completed":1,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySW5mbyI6eyJnZW5kZXI...
+
+AttributeError: 'bytes' object has no attribute 'status'
+2020-08-05 09:38:36.137 | SUCCESS  | hagworm.extend.asyncio.base:run:97 - Stop process no.0

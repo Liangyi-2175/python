@@ -1,0 +1,91 @@
+2020-08-04 15:59:07.063 | INFO     | hagworm.extend.asyncio.base:__init__:72 - 
+ __  __   ______   ______   __     __   ______   ______   __    __
+/\ \_\ \ /\  __ \ /\  ___\ /\ \  _ \ \ /\  __ \ /\  == \ /\ "-./  \
+\ \  __ \\ \  __ \\ \ \__ \\ \ \/ ".\ \\ \ \/\ \\ \  __< \ \ \-./\ \
+ \ \_\ \_\\ \_\ \_\\ \_____\\ \__/".~\_\\ \_____\\ \_\ \_\\ \_\ \ \_\
+  \/_/\/_/ \/_/\/_/ \/_____/ \/_/   \/_/ \/_____/ \/_/ /_/ \/_/  \/_/
+hagworm 3.10.1
+python 3.7.8 (v3.7.8:4b47a5b6ba, Jun 27 2020, 04:47:50) 
+[Clang 6.0 (clang-600.0.57)]
+system Darwin 19.5.0 Darwin Kernel Version 19.5.0: Tue May 26 20:41:44 PDT 2020; root:xnu-6153.121.2~2/RELEASE_X86_64 x86_64
+2020-08-04 15:59:07.069 | SUCCESS  | hagworm.extend.asyncio.base:install_uvloop:30 - uvloop 0.14.0 installed
+2020-08-04 15:59:07.071 | SUCCESS  | hagworm.extend.asyncio.base:run:93 - Start process no.0
+2020-08-04 15:59:07.114 | ERROR    | hagworm.extend.base:__exit__:965 - catching classes that do not inherit from BaseException is not allowed
+Traceback (most recent call last):
+
+  File "/Users/liangyi/Project/git/python/first/com/Stresstest/login.py", line 52, in parse
+    send_request(aiohttp.hdrs.METH_POST, url, data=PARAMS, headers=headers)
+                 │       │    │          │         │               └ {'X-Payload': '35858.746', 'Content-Type': 'application/x-www-form-urlencoded'}
+                 │       │    │          │         └ {'mobile': '18773125125', 'password': '123456'}
+                 │       │    │          └ 'http://dev.jiayouxueba.cn:8080'
+                 │       │    └ 'POST'
+                 │       └ <module 'aiohttp.hdrs' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/hdrs.py'>
+                 └ <module 'aiohttp' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/__init__.py'>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/net.py", line 154, in send_request
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/net.py", line 141, in send_request
+    async with _session.request(method, url, **settings) as _response:
+               │        │       │       │      └ {'data': {'mobile': '18773125125', 'password': '123456'}, 'params': None, 'cookies': None, 'headers': {'X-Payload': '35858.74...
+               │        │       │       └ 'http://dev.jiayouxueba.cn:8080'
+               │        │       └ 'POST'
+               │        └ <function ClientSession.request at 0x7f85040ae4d0>
+               └ <aiohttp.client.ClientSession object at 0x7f8504599950>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/client.py", line 1012, in __aenter__
+    self._resp = await self._coro
+    │    │             │    └ <member '_coro' of '_BaseRequestContextManager' objects>
+    │    │             └ <aiohttp.client._RequestContextManager object at 0x7f85045aa7d0>
+    │    └ <member '_resp' of '_BaseRequestContextManager' objects>
+    └ <aiohttp.client._RequestContextManager object at 0x7f85045aa7d0>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/client.py", line 588, in _request
+    resp.raise_for_status()
+    │    └ <function ClientResponse.raise_for_status at 0x7f85027c3170>
+    └ <ClientResponse(http://dev.jiayouxueba.cn:8080) [404 Not Found]>
+      <CIMultiDictProxy('Server': 'nginx/1.15.6', 'Date': 'Tue, 04...
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/client_reqrep.py", line 946, in raise_for_status
+    headers=self.headers)
+            │    └ <aiohttp._helpers.reify object at 0x7f85027b8a10>
+            └ <ClientResponse(http://dev.jiayouxueba.cn:8080) [404 Not Found]>
+              <CIMultiDictProxy('Server': 'nginx/1.15.6', 'Date': 'Tue, 04...
+
+aiohttp.client_exceptions.ClientResponseError: 404, message='Not Found', url=URL('http://dev.jiayouxueba.cn:8080')
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/frame/stress_tests.py", line 74, in _func
+    await func(*args, **kwargs)
+          │     │       └ {}
+          │     └ (1, 1)
+          └ <bound method Runner.run of <hagworm.frame.stress_tests.Runner object at 0x7f84fee6f3d0>>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/frame/stress_tests.py", line 185, in run
+    await tasks
+          └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f850456b3d0>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/base.py", line 447, in __await__
+    yield from asyncio.gather(*self._task_list).__await__()
+               │       │       │    └ [<Task finished coro=<Task.run() done, defined at /Users/liangyi/Project/git/python/first/com/Stresstest/login.py:84> excepti...
+               │       │       └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f850456b3d0>
+               │       └ <function gather at 0x7f850215e200>
+               └ <module 'asyncio' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/__init__.py'>
+
+  File "/Users/liangyi/Project/git/python/first/com/Stresstest/login.py", line 93, in run
+    await tasks
+          └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f850414c1d0>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/base.py", line 447, in __await__
+    yield from asyncio.gather(*self._task_list).__await__()
+               │       │       │    └ [<Task finished coro=<Task.parse() done, defined at /Users/liangyi/Project/git/python/first/com/Stresstest/login.py:43> excep...
+               │       │       └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f850414c1d0>
+               │       └ <function gather at 0x7f850215e200>
+               └ <module 'asyncio' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/__init__.py'>
+
+  File "/Users/liangyi/Project/git/python/first/com/Stresstest/login.py", line 54, in parse
+    except aiohttp.ClientResponse as err:
+           │       └ <class 'aiohttp.client_reqrep.ClientResponse'>
+           └ <module 'aiohttp' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/__init__.py'>
+
+TypeError: catching classes that do not inherit from BaseException is not allowed
+2020-08-04 15:59:07.137 | SUCCESS  | hagworm.extend.asyncio.base:run:97 - Stop process no.0

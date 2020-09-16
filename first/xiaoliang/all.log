@@ -1,0 +1,5 @@
+2020-08-21 13:29:20,636 - /Users/liangyi/Project/git/python/first/xiaoliang/log.py[line:33] - DEBUG: debug
+2020-08-21 13:29:20,636 - /Users/liangyi/Project/git/python/first/xiaoliang/log.py[line:34] - INFO: info
+2020-08-21 13:29:20,636 - /Users/liangyi/Project/git/python/first/xiaoliang/log.py[line:35] - WARNING: 警告
+2020-08-21 13:29:20,636 - /Users/liangyi/Project/git/python/first/xiaoliang/log.py[line:36] - ERROR: 报错
+2020-08-21 13:29:20,636 - /Users/liangyi/Project/git/python/first/xiaoliang/log.py[line:37] - CRITICAL: 严重

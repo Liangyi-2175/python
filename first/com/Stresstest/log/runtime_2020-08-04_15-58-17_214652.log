@@ -1,0 +1,134 @@
+2020-08-04 15:58:17.227 | INFO     | hagworm.extend.asyncio.base:__init__:72 - 
+ __  __   ______   ______   __     __   ______   ______   __    __
+/\ \_\ \ /\  __ \ /\  ___\ /\ \  _ \ \ /\  __ \ /\  == \ /\ "-./  \
+\ \  __ \\ \  __ \\ \ \__ \\ \ \/ ".\ \\ \ \/\ \\ \  __< \ \ \-./\ \
+ \ \_\ \_\\ \_\ \_\\ \_____\\ \__/".~\_\\ \_____\\ \_\ \_\\ \_\ \ \_\
+  \/_/\/_/ \/_/\/_/ \/_____/ \/_/   \/_/ \/_____/ \/_/ /_/ \/_/  \/_/
+hagworm 3.10.1
+python 3.7.8 (v3.7.8:4b47a5b6ba, Jun 27 2020, 04:47:50) 
+[Clang 6.0 (clang-600.0.57)]
+system Darwin 19.5.0 Darwin Kernel Version 19.5.0: Tue May 26 20:41:44 PDT 2020; root:xnu-6153.121.2~2/RELEASE_X86_64 x86_64
+2020-08-04 15:58:17.234 | SUCCESS  | hagworm.extend.asyncio.base:install_uvloop:30 - uvloop 0.14.0 installed
+2020-08-04 15:58:17.235 | SUCCESS  | hagworm.extend.asyncio.base:run:93 - Start process no.0
+2020-08-04 15:58:37.329 | ERROR    | hagworm.extend.base:__exit__:965 - catching classes that do not inherit from BaseException is not allowed
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/client.py", line 483, in _request
+    timeout=real_timeout
+            └ ClientTimeout(total=120, connect=20, sock_read=120, sock_connect=20)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/connector.py", line 523, in connect
+    proto = await self._create_connection(req, traces, timeout)
+                  │    │                  │    │       └ ClientTimeout(total=120, connect=20, sock_read=120, sock_connect=20)
+                  │    │                  │    └ []
+                  │    │                  └ <aiohttp.client_reqrep.ClientRequest object at 0x7f88d05a8bd0>
+                  │    └ <function TCPConnector._create_connection at 0x7f88d002c710>
+                  └ <aiohttp.connector.TCPConnector object at 0x7f88d0598850>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/connector.py", line 859, in _create_connection
+    req, traces, timeout)
+    │    │       └ ClientTimeout(total=120, connect=20, sock_read=120, sock_connect=20)
+    │    └ []
+    └ <aiohttp.client_reqrep.ClientRequest object at 0x7f88d05a8bd0>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/connector.py", line 967, in _create_direct_connection
+    traces=traces), loop=self._loop)
+           │             │    └ <uvloop.Loop running=True closed=False debug=False>
+           │             └ <aiohttp.connector.TCPConnector object at 0x7f88d0598850>
+           └ []
+
+concurrent.futures._base.CancelledError
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/client.py", line 483, in _request
+    timeout=real_timeout
+            └ ClientTimeout(total=120, connect=20, sock_read=120, sock_connect=20)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/async_timeout/__init__.py", line 45, in __exit__
+    self._do_exit(exc_type)
+    │    │        └ <class 'concurrent.futures._base.CancelledError'>
+    │    └ <function timeout._do_exit at 0x7f88cfddf440>
+    └ <aiohttp.helpers.CeilTimeout object at 0x7f88d0598a90>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/async_timeout/__init__.py", line 92, in _do_exit
+    raise asyncio.TimeoutError
+          │       └ <class 'concurrent.futures._base.TimeoutError'>
+          └ <module 'asyncio' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/__init__.py'>
+
+concurrent.futures._base.TimeoutError
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "/Users/liangyi/Project/git/python/first/com/Stresstest/login.py", line 52, in parse
+    send_request(aiohttp.hdrs.METH_POST, url, data=PARAMS, headers=headers)
+                 │       │    │          │         │               └ {'X-Payload': '35808.911', 'Content-Type': 'application/x-www-form-urlencoded'}
+                 │       │    │          │         └ {'mobile': '18773125125', 'password': '123456'}
+                 │       │    │          └ 'http://dev.jiayouxueba.cn:8080'
+                 │       │    └ 'POST'
+                 │       └ <module 'aiohttp.hdrs' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/hdrs.py'>
+                 └ <module 'aiohttp' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/__init__.py'>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/net.py", line 164, in send_request
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/net.py", line 141, in send_request
+    async with _session.request(method, url, **settings) as _response:
+               │        │       │       │      └ {'data': {'mobile': '18773125125', 'password': '123456'}, 'params': None, 'cookies': None, 'headers': {'X-Payload': '35808.91...
+               │        │       │       └ 'http://dev.jiayouxueba.cn:8080'
+               │        │       └ 'POST'
+               │        └ <function ClientSession.request at 0x7f88d00ad4d0>
+               └ <aiohttp.client.ClientSession object at 0x7f88d0598250>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/client.py", line 1012, in __aenter__
+    self._resp = await self._coro
+    │    │             │    └ <member '_coro' of '_BaseRequestContextManager' objects>
+    │    │             └ <aiohttp.client._RequestContextManager object at 0x7f88d05a9820>
+    │    └ <member '_resp' of '_BaseRequestContextManager' objects>
+    └ <aiohttp.client._RequestContextManager object at 0x7f88d05a9820>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/client.py", line 488, in _request
+    'to host {0}'.format(url)) from exc
+                         └ URL('http://dev.jiayouxueba.cn:8080')
+
+aiohttp.client_exceptions.ServerTimeoutError: Connection timeout to host http://dev.jiayouxueba.cn:8080
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/frame/stress_tests.py", line 74, in _func
+    await func(*args, **kwargs)
+          │     │       └ {}
+          │     └ (1, 1)
+          └ <bound method Runner.run of <hagworm.frame.stress_tests.Runner object at 0x7f88cb7773d0>>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/frame/stress_tests.py", line 185, in run
+    await tasks
+          └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f88d056a090>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/base.py", line 447, in __await__
+    yield from asyncio.gather(*self._task_list).__await__()
+               │       │       │    └ [<Task finished coro=<Task.run() done, defined at /Users/liangyi/Project/git/python/first/com/Stresstest/login.py:84> excepti...
+               │       │       └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f88d056a090>
+               │       └ <function gather at 0x7f88cf927200>
+               └ <module 'asyncio' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/__init__.py'>
+
+  File "/Users/liangyi/Project/git/python/first/com/Stresstest/login.py", line 93, in run
+    await tasks
+          └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f88d056a350>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/hagworm/extend/asyncio/base.py", line 447, in __await__
+    yield from asyncio.gather(*self._task_list).__await__()
+               │       │       │    └ [<Task finished coro=<Task.parse() done, defined at /Users/liangyi/Project/git/python/first/com/Stresstest/login.py:43> excep...
+               │       │       └ <hagworm.extend.asyncio.base.MultiTasks object at 0x7f88d056a350>
+               │       └ <function gather at 0x7f88cf927200>
+               └ <module 'asyncio' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/__init__.py'>
+
+  File "/Users/liangyi/Project/git/python/first/com/Stresstest/login.py", line 54, in parse
+    except aiohttp.ClientResponse as err:
+           │       └ <class 'aiohttp.client_reqrep.ClientResponse'>
+           └ <module 'aiohttp' from '/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiohttp/__init__.py'>
+
+TypeError: catching classes that do not inherit from BaseException is not allowed
+2020-08-04 15:58:37.358 | SUCCESS  | hagworm.extend.asyncio.base:run:97 - Stop process no.0

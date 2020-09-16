@@ -1,0 +1,21 @@
+2020-08-04 17:21:08.119 | INFO     | hagworm.extend.asyncio.base:__init__:72 - 
+ __  __   ______   ______   __     __   ______   ______   __    __
+/\ \_\ \ /\  __ \ /\  ___\ /\ \  _ \ \ /\  __ \ /\  == \ /\ "-./  \
+\ \  __ \\ \  __ \\ \ \__ \\ \ \/ ".\ \\ \ \/\ \\ \  __< \ \ \-./\ \
+ \ \_\ \_\\ \_\ \_\\ \_____\\ \__/".~\_\\ \_____\\ \_\ \_\\ \_\ \ \_\
+  \/_/\/_/ \/_/\/_/ \/_____/ \/_/   \/_/ \/_____/ \/_/ /_/ \/_/  \/_/
+hagworm 3.10.1
+python 3.7.8 (v3.7.8:4b47a5b6ba, Jun 27 2020, 04:47:50) 
+[Clang 6.0 (clang-600.0.57)]
+system Darwin 19.5.0 Darwin Kernel Version 19.5.0: Tue May 26 20:41:44 PDT 2020; root:xnu-6153.121.2~2/RELEASE_X86_64 x86_64
+2020-08-04 17:21:08.125 | SUCCESS  | hagworm.extend.asyncio.base:install_uvloop:30 - uvloop 0.14.0 installed
+2020-08-04 17:21:08.126 | SUCCESS  | hagworm.extend.asyncio.base:run:93 - Start process no.0
+2020-08-04 17:21:08.235 | INFO     | hagworm.extend.asyncio.net:send_request:175 - POST http://dev.jiayouxueba.cn:8080/api/member/external/teacher/signin => status:200
+2020-08-04 17:21:08.239 | INFO     | __main__:parse:55 - ssssssssssssssss b'{"success":false,"code":104,"msg":"\xe6\x89\x8b\xe6\x9c\xba\xe5\x8f\xb7\xe5\x92\x8c\xe5\xaf\x86\xe7\xa0\x81\xe4\xb8\x8d\xe5\x8c\xb9\xe9\x85\x8d"}'
+2020-08-04 17:21:08.239 | INFO     | __main__:parse:73 - The response is success, resp is {'status': 200, 'headers': {'Server': 'nginx/1.15.6', 'Date': 'Tue, 04 Aug 2020 09:21:08 GMT', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Content-Encoding': 'gzip'}, 'body': b'{"success":false,"code":104,"msg":"\xe6\x89\x8b\xe6\x9c\xba\xe5\x8f\xb7\xe5\x92\x8c\xe5\xaf\x86\xe7\xa0\x81\xe4\xb8\x8d\xe5\x8c\xb9\xe9\x85\x8d"}'}
+2020-08-04 17:21:10.246 | INFO     | hagworm.frame.stress_tests:_func:75 - 
+|  EventName  |  SuccessTotal  |  FailureTotal  |  SuccessRatio  |  SuccessAveTime  |  SuccessMinTime  |  SuccessMaxTime  |
+|-------------|----------------|----------------|----------------|------------------|------------------|------------------|
+|  Request    |  1             |  0             |  100.00%       |  0.112s          |  0.112s          |  0.112s          |
+
+2020-08-04 17:21:10.248 | SUCCESS  | hagworm.extend.asyncio.base:run:97 - Stop process no.0
