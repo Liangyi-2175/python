@@ -1,0 +1,1 @@
+构造函数nntp可选参数Python库文档地址："https://docs.python.org/library/nntplib.html"  Documentation

@@ -1,0 +1,41 @@
+telnet 文档
+一、syncore.dispatcher中需要覆写的方法
+
+下面是官网列出asyncore.dispatcher中一般需要覆写的方法：
+
+1.handle_read()：Called when the asynchronous loop detects that a read() call on the channel’s socket will succeed.
+
+当socket有可读的数据的时候执行这个方法，可读的数据的判定条件就是看方法readable()返回为True还是False。即readable()返回为True的时候执行该方法。
+
+2.handle_write()：Called when the asynchronous loop detects that a writable socket can be written.
+
+当socket有可写的数据的时候执行这个方法，可写的数据的判定条件就是看方法writable()返回为True还是False。即writable()返回为True的时候执行该方法。
+
+3.handle_expt()：Called when there is out of band (OOB) data for a socket connection.
+
+当socket通信过程中出现OOB异常的时候执行该方法。
+
+4.handle_connect()：Called when the active opener’s socket actually makes a connection.
+
+当有客户端连接的时候，执行该方法进行处理。
+
+5.handle_close()：Called when the socket is closed.
+
+可连接关闭的时候执行该方法。
+
+6.handle_error()：Called when an exception is raised and not otherwise handled.
+
+当通信过程中出现异常并且没有在其他的地方进行处理的时候执行该方法。
+
+7.handle_accept()：Called on listening channels (passive openers) when a connection can be established with a new remote endpoint that has issued a connect() call for the local endpoint.
+
+当作为server socket监听的时候，有客户端连接的时候，利用这个方法进行处理。
+
+8.readable()：Called each time around the asynchronous loop to determine whether a channel’s socket should be added to the list on which read events can occur.
+
+缓冲区是否有可读数据。
+
+9.writable()：Called each time around the asynchronous loop to determine whether a channel’s socket should be added to the list on which write events can occur.
+
+缓冲区是否有可写数据。
+
